@@ -1,0 +1,15 @@
+[Unit]
+Description=StdSmdBot Telegram Service
+After=network.target mongodb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/stdsmdbot
+ExecStart=/opt/stdsmdbot/bin/bot
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/stdsmdbot/.env
+
+[Install]
+WantedBy=multi-user.target
