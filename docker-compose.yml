@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    restart: always
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=stdsmdbot_db
+      - ADMIN_IDS=${ADMIN_IDS:-7394590844}
+      - STD_API_URL=${STD_API_URL:-https://smd.deepanshu.in/api/extract}
+      - FORCE_SUB_CHANNEL=StdBots
+      - ENV=production
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

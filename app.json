@@ -1,0 +1,61 @@
+{
+  "name": "StdSmdBot",
+  "description": "High-Performance Universal Social Media Video & Audio Downloader Telegram Bot built in Go. Downloads HD videos and MP3 audio from Instagram, YouTube, TikTok, Pinterest, Twitter/X, Facebook, and Reddit powered by StdAPI.",
+  "repository": "https://github.com/StdBots/StdSmdBot",
+  "logo": "https://graph.org/file/00ea4effe5d2dfbb8d5be.jpg",
+  "keywords": [
+    "telegram",
+    "bot",
+    "golang",
+    "downloader",
+    "instagram-downloader",
+    "youtube-downloader",
+    "tiktok-downloader",
+    "pinterest-downloader",
+    "twitter-downloader",
+    "stdbots",
+    "std-deepanshu"
+  ],
+  "stack": "container",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Telegram Bot Token from @BotFather",
+      "required": true
+    },
+    "ADMIN_IDS": {
+      "description": "Comma-separated list of Telegram Admin User IDs",
+      "value": "7394590844",
+      "required": false
+    },
+    "MONGO_URI": {
+      "description": "MongoDB Connection String (Atlas or standalone)",
+      "required": true
+    },
+    "DB_NAME": {
+      "description": "Database Name",
+      "value": "stdsmdbot_db",
+      "required": false
+    },
+    "STD_API_URL": {
+      "description": "StdAPI Media Extraction Endpoint URL",
+      "value": "https://smd.deepanshu.in/api/extract",
+      "required": false
+    },
+    "FORCE_SUB_CHANNEL": {
+      "description": "Channel handle for forced subscription (without @)",
+      "value": "StdBots",
+      "required": false
+    },
+    "ENV": {
+      "description": "Runtime Environment",
+      "value": "production",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
